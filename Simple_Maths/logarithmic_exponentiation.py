@@ -4,17 +4,16 @@ def logarithmic_exponentiation(base, power):
         return base
 
     result = 1
-    while power != 1:
+    while power > 1:
         # While power is even, we divide it by 2 and we
         # multiply result by  the base squared
         while power % 2 == 0:
-            result *= base * base
             power = power / 2
+            base = base * base
         # When we get here, power is an odd number
         # so we only multiply by base (as long as power is not 1)
-        if power > 1:
-            result *= base
-            power = power - 1
+        result *= base
+        power = power - 1
 
     return result
 
